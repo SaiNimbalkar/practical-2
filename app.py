@@ -12,6 +12,10 @@ def home():
 def register():
     data = request.form
 
+    # ✅ Validation starts here
+    if not data.get('email'):
+        return "Email is required"
+
     user_data = {
         "name": data.get('fullname'),
         "email": data.get('email'),
